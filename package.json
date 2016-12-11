@@ -1,0 +1,23 @@
+{
+  "name": "urlshort",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.9.1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "hbs": "^4.0.1",
+    "mongodb": "^2.2.15",
+    "mongoose": "^4.7.2",
+    "mongoose-auto-increment": "^5.0.1",
+    "valid-url": "^1.0.9"
+  }
+}
