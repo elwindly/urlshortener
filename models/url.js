@@ -15,10 +15,11 @@ var URLSchema = new mongoose.Schema({
 });
 
 URLSchema.virtual('result').get(function(){
-    return {originalURL:this.origurl,shortURL:this._id};
+    return {originalURL:this.origurl,shortURL:`https://cryptic-inlet-31734.herokuapp.com/${this._id}`};
 });
 
 var URL =  mongoose.model('URL',URLSchema);
 URLSchema.plugin(autoIncrement.plugin, 'URL');
 
 module.exports = {URL};
+

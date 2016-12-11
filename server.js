@@ -36,15 +36,26 @@ app.get('/new/*',(req,res)=>{
     if(!validURL(urlParam)){
         res.send({note: 'This is not a valid url!'})
     }else{
-        var url = new URL({
+        URL.findOne({
             origurl:urlParam
-        });
+        }).then((doc)=>{
+            if(doc){
+                return res.send(doc.result);
+            }else{
+                var url = new URL({
+                    origurl:urlParam
+                });
 
-        url.save().then((doc)=>{
-            res.send(doc.result);
-        },(err)=>{
+                url.save().then((doc)=>{
+                    res.send(doc.result);
+                },(err)=>{
+                    res.status(400).send();
+                });
+            }
+        }).catch((e)=>{
             res.status(400).send();
-        });
+        })
+
     }
 
 
